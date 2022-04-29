@@ -1,7 +1,7 @@
 [
   {
     "id": "000_sc",
-    "question": "How happy do you feel?",
+    "question": "How sad do you feel?",
     "type": 0,
     "choices": ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
   },
