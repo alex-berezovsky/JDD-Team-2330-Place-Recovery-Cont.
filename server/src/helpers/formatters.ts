@@ -25,7 +25,7 @@ function formatIAnswers(
   }
   
   for (let i = 0; i < answers.length; i++) {
-    ansObj[`questionId${i}`] = answers[i].questionId;
+    // ansObj[`questionId${i}`] = answers[i].questionId;
     ansObj[`answer${i}`] = answers[i].answer.toString();
   }
 
