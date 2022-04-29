@@ -89,6 +89,7 @@
         - questionnaire
         - answers
         - location
+        - blockIndex
 - Answer [GET]: /api/question/answer/:timeframe?
     - Header
         - authorization

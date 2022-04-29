@@ -11,6 +11,7 @@ export interface IAnswers {
   questionnaire: string;
   answers: IAnswer[];
   location: ILocation;
+  blockIndex: number;
 }
 
 export interface ILocation {
@@ -36,6 +37,7 @@ export const AnswersSchema = new Schema<IAnswers>({
     },
   ],
   location: { type: LocationSchema },
+  blockIndex: { type: Number, required: true },
 });
 
 export default model<IAnswers>("Answers", AnswersSchema);

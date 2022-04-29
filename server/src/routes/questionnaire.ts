@@ -45,7 +45,7 @@ router.post("/create", verify, async (req, res: Response) => {
 router.post("/answer", verify, async (req, res: Response) => {
   try {
     const user = await User.findOne({ email: req.currentUser.email });
-    const { questionnaire, answers, location } = req.body;
+    const { questionnaire, answers, location, blockIndex } = req.body;
     if (!validateAnswerArray(answers)) {
       throw {
         httpCode: 400,
@@ -67,6 +67,7 @@ router.post("/answer", verify, async (req, res: Response) => {
       questionnaire,
       answers,
       location,
+      blockIndex,
     });
 
     user.answers.push(newAnswers);

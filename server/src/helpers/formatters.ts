@@ -1,17 +1,12 @@
 import { IAnswers } from "models/answer.model";
 import { IUser } from "models/user.model";
 
-function formatIAnswers(
-  answer: IAnswers,
-  userEmail: string,
-  day: number,
-  index: number
-) {
+function formatIAnswers(answer: IAnswers, userEmail: string, day: number) {
   const answers = answer.answers;
   const ansObj: any = {};
   ansObj.datetime = answer.datetime;
   ansObj.day = day;
-  ansObj.index = index;
+  ansObj.blockIndex = answer.blockIndex;
   ansObj.email = userEmail;
   ansObj.questionnaire = answer.questionnaire;
   if (answer.location !== undefined) {
@@ -23,7 +18,7 @@ function formatIAnswers(
     ansObj.longitude = `unknown`;
     ansObj.geoid = "unknown";
   }
-  
+
   for (let i = 0; i < answers.length; i++) {
     // ansObj[`questionId${i}`] = answers[i].questionId;
     ansObj[`answer${i}`] = answers[i].answer.toString();
@@ -40,18 +35,16 @@ export function formatIAnswersSingleUser(user: IUser) {
 
   for (let answer of answers) {
     if (formattedAnswers.length === 0) {
-      formattedAnswers.push(formatIAnswers(answer, user.email, 0, 0));
+      formattedAnswers.push(formatIAnswers(answer, user.email, 0));
       continue;
     }
-    const lastAnswer = formattedAnswers.at(-1);
-    if (checkSameDate(lastAnswer.datetime, answer.datetime)) {
-      formattedAnswers.push(
-        formatIAnswers(answer, user.email, lastAnswer.day, lastAnswer.index + 1)
-      );
-      continue;
-    }
+    const firstAnswer = formattedAnswers.at(0);
     formattedAnswers.push(
-      formatIAnswers(answer, user.email, lastAnswer.day + 1, 0)
+      formatIAnswers(
+        answer,
+        user.email,
+        getDateDifference(answer.datetime, firstAnswer.datetime)
+      )
     );
   }
 
@@ -69,6 +62,12 @@ export function formatIAnswersMultipleUsers(users: IUser[]) {
   return formattedAnswers.sort(
     (a, b) => Object.keys(b).length - Object.keys(a).length
   );
+}
+
+function getDateDifference(a: Date, b: Date) {
+  const diffTime = Math.abs(a.getTime() - b.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
 }
 
 function checkSameDate(a: Date, b: Date) {
