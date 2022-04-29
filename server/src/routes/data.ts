@@ -56,6 +56,28 @@ router.get("/answers/:user", async (req, res: Response) => {
   }
 });
 
+router.delete("/deleteAllUsers", async (req, res: Response) => {
+  try {
+    await User.deleteMany({ admin: { $ne: true } });
+
+    res.status(200).json("Successfully deleted users.");
+  } catch (error: any) {
+    console.error(error);
+    res.status(error.httpCode || 500).json(error);
+  }
+});
+
+router.delete("/deleteAllAnswers", async (req, res: Response) => {
+  try {
+    await User.updateMany({ admin: { $ne: true } }, { $set: { answers: [] } });
+
+    res.status(200).json("Successfully deleted answers.");
+  } catch (error: any) {
+    console.error(error);
+    res.status(error.httpCode || 500).json(error);
+  }
+});
+
 router.get("/myuser", verify, (req, res: Response) => {
   res.status(200).json(req.currentUser);
 });
