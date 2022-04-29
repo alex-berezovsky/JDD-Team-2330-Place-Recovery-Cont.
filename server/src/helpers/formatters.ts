@@ -15,10 +15,12 @@ function formatIAnswers(
   ansObj.email = userEmail;
   ansObj.questionnaire = answer.questionnaire;
   if (answer.location !== undefined) {
-    ansObj.location = `latitude: ${answer.location.latitude}; longitude: ${answer.location.longitude}`;
+    ansObj.latitude = answer.location.latitude;
+    ansObj.longitude = answer.location.longitude;
     ansObj.geoid = answer.location.geoid;
   } else {
-    ansObj.location = `unknown`;
+    ansObj.latitude = `unknown`;
+    ansObj.longitude = `unknown`;
     ansObj.geoid = "unknown";
   }
   
