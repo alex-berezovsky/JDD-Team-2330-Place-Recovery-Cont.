@@ -120,9 +120,12 @@ export default function HomeScreen({
     if (schedules) {
       let currentHour = new Date().getHours();
       let status = {
-        q1: checkStatus(0, currentHour),
-        q2: checkStatus(1, currentHour),
-        q3: checkStatus(2, currentHour),
+        //q1: checkStatus(0, currentHour),
+        //q2: checkStatus(1, currentHour),
+        //q3: checkStatus(2, currentHour),
+        q1: 2,
+        q2: 2,
+        q3: 2,
       };
       setStatus(status);
     } else {
@@ -189,7 +192,8 @@ export default function HomeScreen({
 
   const ready = () => {
     return (
-      isAvailable != -1 && schedules && !schedules[0].completed[isAvailable]
+      //isAvailable != -1 && schedules && !schedules[0].completed[isAvailable]
+      true
     );
   };
   /**
