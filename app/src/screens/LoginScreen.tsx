@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Alert,
   View,
@@ -15,10 +15,13 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { NavigationContainer } from "@react-navigation/native";
 
 import axios from "axios";
-import { ScrollView } from "react-native";
+import { ScrollView, Platform } from "react-native";
 import { AuthContext } from "../navigation/context";
 
 import {backendUrl} from "../config/config.json";
+
+//google signin
+import * as GoogleSignIn from 'expo-google-sign-in';
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -55,6 +58,44 @@ export default function LoginScreen({ navigation }) {
   const handleSignUp = () => {
     navigation.navigate("Registration");
   };
+
+//initialize google signin
+  useEffect(() => {
+    initAsync();
+  })
+
+  const androidClientId = '767042315819-57ul5ntqhoov3ptbmdth3nqbdfoeflgo.apps.googleusercontent.com';
+  const iosClientId = '767042315819-633uljhrcjql6hocs2mop92h4e994339.apps.googleusercontent.com';
+  
+  const initAsync = async () => {
+    try {
+      await GoogleSignIn.initAsync({
+        clientId: Platform.OS === 'android' ? androidClientId : iosClientId,
+      });
+      getUserDetails();
+    } catch ({message}) {
+      console.log("Google Sign In Error: " + message);
+    }
+  }
+
+  const getUserDetails = async () => {
+    const user = await GoogleSignIn.signInSilentlyAsync();
+    user && handleLogin(); //?????????
+  }
+
+  const handleGoogleSignIn = async () => {
+    try {
+      await GoogleSignIn.askForPlayServicesAsync();
+      const { type, user } = await GoogleSignIn.signInAsync();
+      if (type === "success") {
+        getUserDetails();
+      } else {
+        Alert.alert("Google Sign In is Cancelled.");
+      }
+    } catch ({message}) {
+      Alert.alert("Google Sign In Error: " + message);
+    }
+  }
 
   return (
     <ImageBackground
@@ -109,6 +150,24 @@ export default function LoginScreen({ navigation }) {
                 <Text style={styles.buttonTextWhite}>Login</Text>
               </TouchableOpacity>
             </View>
+              
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                marginTop: 10,
+              }}
+            >
+              <TouchableOpacity
+                style={styles.button}
+                onPress={handleGoogleSignIn}
+                activeOpacity={0.85}
+              >
+                <Text style={styles.buttonTextWhite}>Google</Text>
+              </TouchableOpacity>
+            </View>
+
+
             <Text
               style={{ marginTop: 20 }}
               //onPress={() => navigation.navigate("WelcomeScreen")}

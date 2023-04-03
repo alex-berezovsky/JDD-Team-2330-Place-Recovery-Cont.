@@ -20,6 +20,11 @@
       "supportsTablet": true,
       "userInterfaceStyle": "light",
       "bundleIdentifier": "com.placenrecovery.placenrecovery",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.767042315819-633uljhrcjql6hocs2mop92h4e994339"
+        }
+      },
       "associatedDomains": [
         "webcredentials:https://placenrecovery.herokuapp.com/"
       ]
@@ -36,6 +41,15 @@
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
+<<<<<<< Updated upstream
     "description": ""
+=======
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "92c99427-42d8-4d5b-ba4a-92d54b1c8233"
+      }
+    }
+>>>>>>> Stashed changes
   }
 }
