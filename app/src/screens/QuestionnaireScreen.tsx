@@ -141,12 +141,8 @@ export default function Questionnaire({ navigation }) {
         console.log("here");
         setNextButton(true);
         console.log(nextButton);
-        setBackButton(true);
-        console.log(backButton);
-      
       } else {
         setNextButton(false);
-        setBackButton(false);
       }
     }
   };
@@ -529,19 +525,6 @@ export default function Questionnaire({ navigation }) {
             )}
             {index == length - 1 ? renderSubmit() : null}
           </View>
-
-          <View style={styles.bottom}>
-            {index == length ? null : (
-              <TouchableOpacity
-                style={styles.button}
-                onPress={decrease}
-              >
-                <Text style={styles.buttonText}>BACK</Text>
-              </TouchableOpacity>
-            )}
-            {index == length - 1 ? renderSubmit() : null}
-          </View>
-
         </View>
       )}
     </View>
