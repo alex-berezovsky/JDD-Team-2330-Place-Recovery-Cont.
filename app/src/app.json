@@ -41,15 +41,11 @@
     "web": {
       "favicon": "./assets/images/favicon.png"
     },
-<<<<<<< Updated upstream
-    "description": ""
-=======
     "description": "",
     "extra": {
       "eas": {
         "projectId": "92c99427-42d8-4d5b-ba4a-92d54b1c8233"
       }
     }
->>>>>>> Stashed changes
   }
 }
