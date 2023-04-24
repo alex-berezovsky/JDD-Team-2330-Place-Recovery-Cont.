@@ -92,7 +92,7 @@ export default function App() {
   const setItem = (name: string, data: string) => {
     try {
       SecureStore.setItemAsync(name, data);
-      // console.log("data stored");
+
     } catch (error: any) {
       // Error saving data
       console.log("AsyncStorage save error: " + error.message);
@@ -101,7 +101,7 @@ export default function App() {
 
   const verifyToken = async () => {
     await SecureStore.getItemAsync("user_token").then((token) => {
-      // console.log(token);
+      
       axios
         .get(`${backendUrl}/api/auth/jwt-test`, {
           headers: {
