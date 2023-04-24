@@ -374,6 +374,10 @@ export default function Questionnaire({ navigation }) {
     );
   };
 
+    /**
+     * Disallows numbers, restricting input to alphabetical letters.
+     * @param e 
+     */
     const onInputChange = e => {
       const { value } = e.target;
       console.log('Input value: ', value);
