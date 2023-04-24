@@ -50,7 +50,8 @@ export default function Questionnaire({ navigation }) {
 
   const { userInfo } = useContext(AuthContext);
 
-  const [blockIdx, setBlockIdx] = useState<number>(1); 
+  const [blockIdx, setBlockIdx] = useState<number>(-1); 
+
 
   interface answer_type {
     choiceIndex: Number | Array<number>;
