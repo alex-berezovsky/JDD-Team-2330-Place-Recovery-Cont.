@@ -123,6 +123,9 @@ export default function HomeScreen({
         //q1: checkStatus(0, currentHour),
         //q2: checkStatus(1, currentHour),
         //q3: checkStatus(2, currentHour),
+        /**
+         * This makes it so that the questionnaire can be available to be taken at any time. Above code is commented out, can change to restrict availability.
+         */
         q1: 2,
         q2: 2,
         q3: 2,
