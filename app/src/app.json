@@ -22,7 +22,7 @@
     "ios": {
       "supportsTablet": true,
       "userInterfaceStyle": "light",
-      "bundleIdentifier": "com.placenrecovery.placenrecovery",
+      "bundleIdentifier": "53W64CDH6P.com.placenrecovery.placenrecovery",
       "associatedDomains": [
         "webcredentials:https://placenrecovery.herokuapp.com/"
       ]
@@ -42,7 +42,7 @@
     "description": "mental health app",
     "extra": {
       "eas": {
-        "projectId": "92c99427-42d8-4d5b-ba4a-92d54b1c8233"
+        "projectId": "3edda984-13fa-462d-adb1-e6ae51730c7c"
       }
     },
     "owner": "gingirvitis"
