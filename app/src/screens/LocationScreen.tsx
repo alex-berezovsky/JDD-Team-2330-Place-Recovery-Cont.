@@ -40,6 +40,11 @@ export default function LocationScreen() {
     setTimestamp(location.timestamp);
     setLocalTime(convertTime(new Date(location.timestamp)));
 
+
+    /** 
+     * This enables background location tracking, which the app did not previously have. The app had foreground location tracking, which meant the app tracked the location of the app
+     * when the app was active. With background location tracking permissions enabled, the app is able to track the location of the user even when the app is in the background.
+    */
     let backPerm = await Location.requestBackgroundPermissionsAsync();
     console.log(backPerm);
   };
