@@ -269,6 +269,9 @@ export default function Questionnaire({ navigation }) {
             // onInputChange(freeText);
             //freeText.replace(/[^0-9]/, '');
             //freeText.replace(/^[A-Za-z]+$/, '');
+            /**
+            freeText is the text passed in as the user's response, we replace anything that is NOT letters or numbers with whitespace using regex expressions
+            **/
             freeText = freeText.replace(/[^0-9a-z-A-Z ]/g, "").replace(/ +/, " ");
             temp_answers[i].answer = freeText;
             
