@@ -127,11 +127,7 @@ export default function App() {
           setAuthValid(false);
         });
     });
-    // setTimeout(() => {
-    //   setIsLoading(false);
-    // }, 1000);
 
-    // setIsLoading(false);
   };
 
   const authContext = React.useMemo(() => {
@@ -140,11 +136,7 @@ export default function App() {
         setItem("user_token", token);
         verifyToken();
       },
-      // signUp: (token: string) => {
-      //   setIsLoading(false);
-      //   setItem("user_token", token);
-      //   verifyToken();
-      // },
+
       signOut: () => {
         setAuthValid(false);
         setItem("user_token", "");
