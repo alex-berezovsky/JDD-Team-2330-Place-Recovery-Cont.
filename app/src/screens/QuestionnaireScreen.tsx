@@ -50,7 +50,8 @@ export default function Questionnaire({ navigation }) {
 
   const { userInfo } = useContext(AuthContext);
 
-  const [blockIdx, setBlockIdx] = useState<number>(-1); //changed from -1 for testing // why is it initially set to -1?
+  const [blockIdx, setBlockIdx] = useState<number>(-1); 
+
 
   interface answer_type {
     choiceIndex: Number | Array<number>;
@@ -112,6 +113,9 @@ export default function Questionnaire({ navigation }) {
       setNextButton(false);
     }
 
+    /**
+     * With this change, the questionnaire has a back button that the user can utilize to go back and forth in their questionnaire.
+     */
     console.log(backButton);
     if (index < 0) {
       setBackButton(true);
