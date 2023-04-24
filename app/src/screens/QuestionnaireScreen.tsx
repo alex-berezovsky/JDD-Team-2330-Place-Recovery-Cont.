@@ -112,6 +112,9 @@ export default function Questionnaire({ navigation }) {
       setNextButton(false);
     }
 
+    /**
+     * With this change, the questionnaire has a back button that the user can utilize to go back and forth in their questionnaire.
+     */
     console.log(backButton);
     if (index < 0) {
       setBackButton(true);
