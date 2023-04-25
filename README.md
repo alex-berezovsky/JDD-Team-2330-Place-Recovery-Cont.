@@ -43,6 +43,17 @@ The project is a mobile application for mental health and risk stratification ba
 <br>
 </p>
 
+## Version 2.0.0
+### Features
+- No new features were added
+- Sprint was dedicated towards getting the app on TestFlight
+### Known Issues
+- Background location tracking works on Android but not iOS
+- Progress graphs do not update correctly with questionnaire submission
+- Attempting to upload MongoDB data to spreadsheets causes a “file missing” error (file is index.js)
+### Fixed Bugs
+- Error regarding questionnaire submission has been resolved
+
 ## Version 1.4.0
 ### Features
 - Ability to take the questionnaire at anytime added
