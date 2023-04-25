@@ -163,8 +163,8 @@ cd ./server
 This project is licensed under the [MIT license](LICENSE).
 
 ## Troubleshooting
-1. User runs into a node dependency error
+### User runs into a node dependency error
 - Try installing node.js version 16.18.1 by running npm i node@16.16.0 from the terminal or command line.
-2. If running into error with EAS build
+### If running into error with EAS build
 - Ensure that the app created when running npx create-expo-app has the same name as the app listed in the Expo Developer account.
 - Ensure that the project ID in the app.json file is the same as the one listed for the app in the Expo Developer account.
